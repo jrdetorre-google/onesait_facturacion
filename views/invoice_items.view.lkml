@@ -64,88 +64,107 @@ view: invoice_items {
   }
 
   measure: total_duracion {
-    label: "Duración total (segundos)"
+    group_label: "Duración"
+    group_item_label: "Duración total (segundos)"
     type: sum
     sql: ${duracion_servicio} ;;
   }
 
   measure: total_duracion_minutos {
-    label: "Duración total (minutos)"
+    group_label: "Duración"
+    group_item_label: "Duración total (minutos)"
     type: sum
     sql: ${duracion_servicio} / 60 ;;
     value_format_name: "decimal_2"
   }
 
   measure: average_duracion {
-    label: "Duración media (segundos)"
+    group_label: "Duración"
+    group_item_label: "Duración media (segundos)"
     type: average
     sql: ${duracion_servicio} ;;
   }
 
   measure: average_duracion_minutos {
-    label: "Duración media (minutos)"
+    group_label: "Duración"
+    group_item_label: "Duración media (minutos)"
     type: average
     sql: ${duracion_servicio} / 60;;
     value_format_name: "decimal_2"
   }
 
   measure: max_duracion {
-    label: "Duración máxima (segundos)"
+    group_label: "Duración"
+    group_item_label: "Duración máxima (segundos)"
     type: max
     sql: ${duracion_servicio} ;;
   }
 
   measure: max_duracion_minutos {
-    label: "Duración máxima (minutos)"
+    group_label: "Duración"
+    group_item_label: "Duración máxima (minutos)"
     type: max
     sql: ${duracion_servicio} / 60;;
     value_format_name: "decimal_2"
   }
 
-  measure: total_importe{
-    label: "Importe total"
+  measure: total_importe {
+    group_label: "Importe"
+    group_item_label: "Importe total"
     type: sum
     value_format_name: "eur"
     drill_fields: [abonado, importe_servicio]
     sql: ${importe_servicio};;
   }
 
-  measure: average_importe{
-    label: "Importe promedio"
+  measure: average_importe {
+    group_label: "Importe"
+    group_item_label: "Importe promedio"
     type: average
     value_format_name: "eur"
     sql: ${importe_servicio} ;;
   }
 
   measure: max_importe {
-    label: "Importe máximo"
+    group_label: "Importe"
+    group_item_label: "Importe máximo"
     type: max
     value_format_name: "eur"
     sql: ${importe_servicio} ;;
   }
 
-  measure: total_KB{
+  measure: total_KB {
+    group_label: "Volumen de datos"
+    group_item_label: "Volumen total (KB)"
     type: sum
     sql: ${kb_servicio} ;;  }
 
-  measure: total_MB{
+  measure: total_MB {
+    group_label: "Volumen de datos"
+    group_item_label: "Volumen total (MB)"
     type: sum
     value_format_name: "decimal_3"
     sql: ${kb_servicio}/(1024) ;;
   }
 
-  measure: total_GB{
+  measure: total_GB {
+    group_label: "Volumen de datos"
+    group_item_label: "Volumen total (GB)"
     type: sum
     value_format_name: "decimal_3"
     sql: ${kb_servicio}/(1024*1024) ;;
   }
 
-  measure: average_KB{
+  measure: average_KB {
+    group_label: "Volumen de datos"
+    group_item_label: "Volumen promedio (KB)"
     type: average
     sql: ${kb_servicio} ;;
   }
 
   measure: max_KB {
+    group_label: "Volumen de datos"
+    group_item_label: "Volumen máximo (KB)"
     type: max
     sql: ${kb_servicio} ;;
   }
