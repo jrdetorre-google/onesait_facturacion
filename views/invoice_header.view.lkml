@@ -29,7 +29,10 @@ view: invoice_header {
     sql: ${TABLE}.fecha_factura ;;
   }
 
-  measure: count {
-    type: count
+  measure: count_invoice_id {
+    label: "Número de facturas"
+    type: count_distinct
+    sql: ${invoice_id} ;;
+    drill_fields: [cliente_id, fecha_factura_date]
   }
 }

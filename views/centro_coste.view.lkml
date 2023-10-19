@@ -9,6 +9,11 @@ view: centro_coste {
     sql: ${TABLE}.centro_coste_id ;;
   }
 
+  dimension: nombre_centro_coste {
+    type: string
+    sql: ${TABLE}.nombre_centro_coste ;;
+  }
+
   dimension: cuenta_facturacion_id {
     type: string
     sql: ${TABLE}.cuenta_facturacion_id ;;
@@ -42,21 +47,10 @@ view: centro_coste {
     sql: ${TABLE}.codigo_postal ;;
   }
 
-  dimension: nombre_centro_coste {
-    type: string
-    sql: ${TABLE}.nombre_centro_coste ;;
-  }
-
-  measure: count {
-    type: count
+  measure: count_centro_coste_id {
+    label: "Número de centros de coste"
+    type: count_distinct
+    sql: ${centro_coste_id} ;;
     drill_fields: [centro_coste_id]
   }
-
-  measure: total_codigo_postal {
-    type: sum
-    sql: ${codigo_postal} ;;  }
-
-  measure: average_codigo_postal {
-    type: average
-    sql: ${codigo_postal} ;;  }
 }

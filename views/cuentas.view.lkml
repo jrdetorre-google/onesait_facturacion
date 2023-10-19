@@ -10,6 +10,7 @@ view: cuentas {
   }
 
   dimension: cif {
+    label: "NIF"
     type: string
     sql: ${TABLE}.CIF ;;
   }
