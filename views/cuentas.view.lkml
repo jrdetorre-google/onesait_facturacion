@@ -11,6 +11,13 @@ view: cuentas {
     # A dimension is a groupable field that can be used to filter query results.
     # This dimension will be called "Cif" in Explore.
 
+  dimension: pk {
+    primary_key: yes
+    type: string
+    sql: CONCAT(${cliente_id}, ${cuenta_facturacion_id} ;;
+  }
+
+
   dimension: cif {
     type: string
     sql: ${TABLE}.CIF ;;
@@ -25,12 +32,7 @@ view: cuentas {
   # measures for this dimension, but you can also add measures of many different aggregates.
   # Click on the type parameter to see all the options in the Quick Help panel on the right.
 
-  measure: total_clave__de_cobro {
-    type: sum
-    sql: ${clave__de_cobro} ;;  }
-  measure: average_clave__de_cobro {
-    type: average
-    sql: ${clave__de_cobro} ;;  }
+
 
   dimension: cliente_id {
     type: string
