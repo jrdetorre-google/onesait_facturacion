@@ -10,7 +10,7 @@ view: invoice_items {
 
   dimension: invoice_item_id {
     primary_key: yes
-    type: number
+    type: string
     sql: ${TABLE}.Invoice_item_id ;;
   }
     # Here's what a typical dimension looks like in LookML.
