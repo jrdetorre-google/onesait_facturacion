@@ -18,7 +18,7 @@ view: invoice_items {
     # This dimension will be called "Abonado" in Explore.
 
   dimension: abonado {
-    type: number
+    type: string
     sql: ${TABLE}.Abonado ;;
   }
 
