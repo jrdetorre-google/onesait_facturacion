@@ -3,12 +3,14 @@ view: invoice_header {
   label: "Información de facturas"
 
   dimension: invoice_id {
+    label: "Número de factura"
     primary_key: yes
     type: number
     sql: ${TABLE}.invoice_id ;;
   }
 
   dimension: cliente_id {
+    label: "Código de cliente"
     type: string
     sql: ${TABLE}.cliente_id ;;
   }
@@ -19,6 +21,7 @@ view: invoice_header {
   }
 
   dimension_group: fecha_factura {
+    label: "Fecha de emisión"
     type: time
     timeframes: [raw, date, week, month, quarter, year]
     convert_tz: no

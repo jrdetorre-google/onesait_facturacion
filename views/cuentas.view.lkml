@@ -24,37 +24,47 @@ view: cuentas {
     sql: ${TABLE}.cliente_id ;;
   }
 
-  dimension: codigo_postal {
-    type: number
-    sql: ${TABLE}.codigo_postal ;;
-  }
-
   dimension: cuenta_facturacion_id {
     type: string
     sql: ${TABLE}.cuenta_facturacion_id ;;
   }
 
+  dimension: iban {
+    label: "IBAN"
+    type: string
+    sql: ${TABLE}.IBAN ;;
+  }
+
   dimension: direccion_1 {
+    group_label: "Dirección"
+    group_item_label: "Dirección 1"
     type: string
     sql: ${TABLE}.direccion_1 ;;
   }
 
   dimension: direccion_2 {
+    group_label: "Dirección"
+    group_item_label: "Dirección 2"
     type: string
     sql: ${TABLE}.direccion_2 ;;
   }
 
-  dimension: iban {
-    type: string
-    sql: ${TABLE}.IBAN ;;
-  }
-
   dimension: municipio {
+    group_label: "Dirección"
+    group_item_label: "Municipio"
     type: string
     sql: ${TABLE}.municipio ;;
   }
 
+  dimension: codigo_postal {
+    group_label: "Dirección"
+    group_item_label: "Código postal"
+    type: number
+    sql: ${TABLE}.codigo_postal ;;
+  }
+
   dimension: nombre_cliente {
+    label: "Titular"
     type: string
     sql: ${TABLE}.nombre_cliente ;;
   }
