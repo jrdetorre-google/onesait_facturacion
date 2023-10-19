@@ -26,12 +26,6 @@ view: invoice_items {
   # measures for this dimension, but you can also add measures of many different aggregates.
   # Click on the type parameter to see all the options in the Quick Help panel on the right.
 
-  measure: total_abonado {
-    type: sum
-    sql: ${abonado} ;;  }
-  measure: average_abonado {
-    type: average
-    sql: ${abonado} ;;  }
 
   dimension: descripcion_servicio {
     type: string
@@ -47,12 +41,26 @@ view: invoice_items {
     type: number
     sql: ${TABLE}.Duracion_servicio ;;
   }
+
+
+  measure: total_duracion {
+    type: sum
+    sql: ${duracion_servicio} ;;  }
+
+  measure: average_duracion {
+    type: average
+    sql: ${duracion_servicio} ;;  }
+
+  measure: max_duracion {
+    type: max
+    sql: ${duracion_servicio} ;;  }
+
   # Dates and timestamps can be represented in Looker using a dimension group of type: time.
   # Looker converts dates and timestamps to the specified timeframes within the dimension group.
 
   dimension_group: fecha_servicio {
     type: time
-    timeframes: [raw, date, week, month, quarter, year]
+    timeframes: [raw, date, week, month, quarter, year, day_of_week, day_of_month]
     convert_tz: no
     datatype: date
     sql: ${TABLE}.Fecha_servicio ;;
@@ -67,6 +75,17 @@ view: invoice_items {
     type: number
     sql: ${TABLE}.Importe_servicio ;;
   }
+  measure: total_importe{
+    type: sum
+    sql: ${importe_servicio} ;;  }
+
+  measure: average_importe{
+    type: average
+    sql: ${importe_servicio} ;;  }
+
+  measure: max_importe {
+    type: max
+    sql: ${importe_servicio} ;;  }
 
   dimension: invoice_id {
     type: number
@@ -78,6 +97,17 @@ view: invoice_items {
     sql: ${TABLE}.KB_servicio ;;
   }
 
+  measure: total_KB{
+    type: sum
+    sql: ${kb_servicio} ;;  }
+
+  measure: average_KB{
+    type: average
+    sql: ${kb_servicio} ;;  }
+
+  measure: max_KB {
+    type: max
+    sql: ${kb_servicio} ;;  }
   dimension: servicio {
     type: string
     sql: ${TABLE}.Servicio ;;
