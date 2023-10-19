@@ -38,14 +38,15 @@ explore: facturacion {
     type: left_outer
     sql_on: ${facturacion.invoice_id} = ${invoice_header.invoice_id} ;;
   }
-  join: cuentas {
-    relationship: one_to_one
-    type: left_outer
-    sql_on: ${invoice_header.cliente_id} = ${cuentas.cliente_id} ;;
-  }
   join: centro_coste {
     relationship: one_to_many
     type: left_outer
-    sql_on: ${cuentas.cuenta_facturacion_id} = ${centro_coste.cuenta_facturacion_id};;
+    sql_on: ${invoice_header.cuenta_facturacion_id} = ${centro_coste.cuenta_facturacion_id};;
   }
+  join: cuentas {
+    relationship: one_to_one
+    type: left_outer
+    sql_on: ${invoice_header.cliente_id} = ${cuentas.cliente_id};;
+  }
+
 }
