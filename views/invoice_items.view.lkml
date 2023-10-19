@@ -118,6 +118,14 @@ view: invoice_items {
     type: sum
     sql: ${kb_servicio} ;;  }
 
+  measure: total_MB{
+    type: sum
+    sql: ${kb_servicio}/(1024) ;;  }
+
+  measure: total_GB{
+    type: sum
+    sql: ${kb_servicio}/(1024*1024) ;;  }
+
   measure: average_KB{
     type: average
     sql: ${kb_servicio} ;;  }
