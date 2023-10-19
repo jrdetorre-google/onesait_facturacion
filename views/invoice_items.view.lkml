@@ -78,7 +78,9 @@ view: invoice_items {
   measure: total_importe{
     type: sum
     value_format_name: "eur"
-    sql: ${importe_servicio} ;;  }
+    sql: ${importe_servicio}
+    drill_fields: [abonado, importe_servicio];;
+    }
 
   measure: average_importe{
     type: average
