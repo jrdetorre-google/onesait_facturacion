@@ -77,14 +77,17 @@ view: invoice_items {
   }
   measure: total_importe{
     type: sum
+    value_format_name: "eur"
     sql: ${importe_servicio} ;;  }
 
   measure: average_importe{
     type: average
+    value_format_name: "eur"
     sql: ${importe_servicio} ;;  }
 
   measure: max_importe {
     type: max
+    value_format_name: "eur"
     sql: ${importe_servicio} ;;  }
 
   dimension: invoice_id {
