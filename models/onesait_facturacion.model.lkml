@@ -39,9 +39,9 @@ explore: facturacion {
     sql_on: ${facturacion.invoice_id} = ${invoice_header.invoice_id} ;;
   }
   join: cuentas {
-    relationship: many_to_many
+    relationship: one_to_one
     type: left_outer
-    sql_on: ${cuentas.cliente_id} = ${invoice_header.cliente_id};;
+    sql_on: ${invoice_header.cliente_id} = ${cuentas.cliente_id} ;;
   }
   join: centro_coste {
     relationship: one_to_many
