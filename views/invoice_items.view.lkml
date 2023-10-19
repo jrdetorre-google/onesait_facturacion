@@ -120,10 +120,12 @@ view: invoice_items {
 
   measure: total_MB{
     type: sum
+    value_format_name: "decimal_3"
     sql: ${kb_servicio}/(1024) ;;  }
 
   measure: total_GB{
     type: sum
+    value_format_name: "decimal_3"
     sql: ${kb_servicio}/(1024*1024) ;;  }
 
   measure: average_KB{
