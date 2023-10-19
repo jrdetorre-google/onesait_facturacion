@@ -22,10 +22,18 @@ view: invoice_items {
     sql: ${TABLE}.Abonado ;;
   }
 
+  measure: lineas {
+    type: count_distinct
+    sql: ${abonado} ;;  }
+
   # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
   # measures for this dimension, but you can also add measures of many different aggregates.
   # Click on the type parameter to see all the options in the Quick Help panel on the right.
 
+  dimension: servicio {
+    type: string
+    sql: ${TABLE}.Servicio ;;
+  }
 
   dimension: descripcion_servicio {
     type: string
@@ -33,15 +41,15 @@ view: invoice_items {
   }
 
   dimension: destino {
-    type: number
+    type: string
     sql: ${TABLE}.Destino ;;
   }
 
+# DURACION
   dimension: duracion_servicio {
     type: number
     sql: ${TABLE}.Duracion_servicio ;;
   }
-
 
   measure: total_duracion {
     type: sum
@@ -71,6 +79,8 @@ view: invoice_items {
     sql: ${TABLE}.Hora_servicio ;;
   }
 
+# IMPORTE
+
   dimension: importe_servicio {
     type: number
     sql: ${TABLE}.Importe_servicio ;;
@@ -93,9 +103,11 @@ view: invoice_items {
     sql: ${importe_servicio} ;;  }
 
   dimension: invoice_id {
-    type: number
+    type: string
     sql: ${TABLE}.invoice_id ;;
   }
+
+# NAVEGACION
 
   dimension: kb_servicio {
     type: number
@@ -113,10 +125,7 @@ view: invoice_items {
   measure: max_KB {
     type: max
     sql: ${kb_servicio} ;;  }
-  dimension: servicio {
-    type: string
-    sql: ${TABLE}.Servicio ;;
-  }
+
   measure: count {
     type: count
     drill_fields: [invoice_item_id]
