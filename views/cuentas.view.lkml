@@ -1,8 +1,10 @@
 view: cuentas {
   sql_table_name: `onesait_facturacion.cuentas` ;;
+  label: "Información del cliente"
 
   dimension: pk {
     primary_key: yes
+    hidden: yes
     type: string
     sql: CONCAT(${cliente_id}, ${cuenta_facturacion_id} ;;
   }

@@ -1,5 +1,6 @@
 view: invoice_header {
   sql_table_name: `onesait_facturacion.invoice_header` ;;
+  label: "Información de facturas"
 
   dimension: invoice_id {
     primary_key: yes

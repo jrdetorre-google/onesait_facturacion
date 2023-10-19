@@ -1,6 +1,7 @@
 view: centro_coste {
   sql_table_name: `onesait_facturacion.centro_coste` ;;
   drill_fields: [centro_coste_id]
+  label: "Centros de coste"
 
   dimension: centro_coste_id {
     primary_key: yes

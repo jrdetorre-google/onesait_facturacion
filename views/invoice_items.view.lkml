@@ -1,6 +1,7 @@
 view: invoice_items {
   sql_table_name: `onesait_facturacion.invoice_items` ;;
   drill_fields: [invoice_item_id]
+  label: "Detalles de facturas"
 
   dimension: invoice_item_id {
     primary_key: yes
