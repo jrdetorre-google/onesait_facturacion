@@ -31,5 +31,21 @@ explore: invoice_header {}
 
 explore: cuentas {}
 
-explore: invoice_items {}
-
+explore: facturacion {
+  from: invoice_items
+  join: invoice_header {
+    relationship: many_to_one
+    type: left_outer
+    sql_on: ${facturacion.invoice_id} = ${invoice_header.invoice_id} ;;
+  }
+  join: cuentas {
+    relationship: many_to_many
+    type: left_outer
+    sql_on: ${cuentas.cliente_id} = ${invoice_header.cliente_id};;
+  }
+  join: centro_coste {
+    relationship: one_to_many
+    type: left_outer
+    sql_on: ${cuentas.cuenta_facturacion_id} = ${centro_coste.cuenta_facturacion_id};;
+  }
+}
