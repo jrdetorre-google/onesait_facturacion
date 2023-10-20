@@ -10,7 +10,7 @@ view: invoice_items {
   }
 
   dimension: abonado {
-    type: string
+    type: number
     sql: ${TABLE}.Abonado ;;
   }
 
