@@ -12,11 +12,17 @@ datagroup: onesait_facturacion_default_datagroup {
 
 persist_with: onesait_facturacion_default_datagroup
 
-explore: centro_coste {}
+explore: centro_coste {
+  hidden: yes
+}
 
-explore: invoice_header {}
+explore: invoice_header {
+  hidden: yes
+}
 
-explore: cuentas {}
+explore: cuentas {
+  hidden: yes
+}
 
 explore: facturacion {
   from: invoice_items
