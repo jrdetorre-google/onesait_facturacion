@@ -1,6 +1,5 @@
 view: invoice_items {
   sql_table_name: `onesait_facturacion.invoice_items` ;;
-  drill_fields: [invoice_item_id]
   label: "Detalles de facturas"
 
   dimension: invoice_item_id {
@@ -68,6 +67,7 @@ view: invoice_items {
     group_item_label: "Duración total (segundos)"
     type: sum
     sql: ${duracion_servicio} ;;
+    value_format_name: "id"
   }
 
   measure: total_duracion_minutos {
@@ -83,6 +83,7 @@ view: invoice_items {
     group_item_label: "Duración media (segundos)"
     type: average
     sql: ${duracion_servicio} ;;
+    value_format_name: "id"
   }
 
   measure: average_duracion_minutos {
@@ -98,13 +99,14 @@ view: invoice_items {
     group_item_label: "Duración máxima (segundos)"
     type: max
     sql: ${duracion_servicio} ;;
+    value_format_name: "id"
   }
 
   measure: max_duracion_minutos {
     group_label: "Duración"
     group_item_label: "Duración máxima (minutos)"
     type: max
-    sql: ${duracion_servicio} / 60;;
+    sql: ${duracion_servicio} / 60 ;;
     value_format_name: "decimal_2"
   }
 
@@ -171,7 +173,7 @@ view: invoice_items {
 
   measure: count {
     type: count
-    drill_fields: [invoice_item_id]
+    value_format_name: "id"
   }
 
   measure: lineas {
