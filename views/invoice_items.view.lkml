@@ -176,7 +176,7 @@ view: invoice_items {
     group_label: "Volumen de datos"
     group_item_label: "Volumen total (MB)"
     type: sum
-    value_format_name: "decimal_3"
+    value_format_name: "decimal_2"
     sql: ${kb_servicio}/(1024) ;;
   }
 
@@ -184,7 +184,7 @@ view: invoice_items {
     group_label: "Volumen de datos"
     group_item_label: "Volumen total (GB)"
     type: sum
-    value_format_name: "decimal_3"
+    value_format_name: "decimal_2"
     sql: ${kb_servicio}/(1024*1024) ;;
   }
 
@@ -199,7 +199,7 @@ view: invoice_items {
     group_label: "Volumen de datos"
     group_item_label: "Volumen promedio (MB)"
     type: average
-    value_format_name: "decimal_3"
+    value_format_name: "decimal_2"
     sql: ${kb_servicio}/(1024) ;;
   }
 
@@ -207,7 +207,7 @@ view: invoice_items {
     group_label: "Volumen de datos"
     group_item_label: "Volumen promedio (GB)"
     type: average
-    value_format_name: "decimal_3"
+    value_format_name: "decimal_2"
     sql: ${kb_servicio}/(1024*1024) ;;
   }
 
