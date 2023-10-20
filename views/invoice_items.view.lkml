@@ -12,6 +12,7 @@ view: invoice_items {
   dimension: abonado {
     type: number
     sql: ${TABLE}.Abonado ;;
+    value_format_name: id
   }
 
   dimension: servicio {
