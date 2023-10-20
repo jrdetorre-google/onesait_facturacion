@@ -3,6 +3,7 @@ view: invoice_items {
   label: "Detalles de facturas"
 
   dimension: invoice_item_id {
+    label: "Id de línea de factura"
     primary_key: yes
     type: string
     sql: ${TABLE}.Invoice_item_id ;;
@@ -19,6 +20,7 @@ view: invoice_items {
   }
 
   dimension: descripcion_servicio {
+    label: "Descripción del servicio"
     type: string
     sql: ${TABLE}.Descripcion_servicio ;;
   }
@@ -37,6 +39,7 @@ view: invoice_items {
   }
 
   dimension: hora_servicio {
+    label: "Hora de la llamada"
     type: string
     sql: ${TABLE}.Hora_servicio ;;
   }
@@ -53,11 +56,13 @@ view: invoice_items {
   }
 
   dimension: invoice_id {
+    label: "Número de factura"
     type: string
     sql: ${TABLE}.invoice_id ;;
   }
 
   dimension: kb_servicio {
+    label: "Volumen datos (Kb)"
     type: number
     sql: ${TABLE}.KB_servicio ;;
   }
