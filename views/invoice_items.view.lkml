@@ -62,6 +62,31 @@ view: invoice_items {
     sql: ${TABLE}.KB_servicio ;;
   }
 
+  parameter: date_granularity {
+    hidden: yes
+    type: unquoted
+    allowed_value: {
+      label: "Día"
+      value: "day"
+    }
+    allowed_value: {
+      label: "Mes"
+      value: "month"
+    }
+  }
+
+  dimension: date {
+    hidden: yes
+    sql:
+    {% if date_granularity._parameter_value == 'day' %}
+      ${fecha_servicio_date}
+    {% elsif date_granularity._parameter_value == 'month' %}
+      ${fecha_servicio_month}
+    {% else %}
+      ${fecha_servicio_date}
+    {% endif %};;
+  }
+
   measure: total_duracion {
     group_label: "Duración"
     group_item_label: "Duración total (segundos)"
@@ -139,7 +164,8 @@ view: invoice_items {
     group_label: "Volumen de datos"
     group_item_label: "Volumen total (KB)"
     type: sum
-    sql: ${kb_servicio} ;;  }
+    sql: ${kb_servicio} ;;
+  }
 
   measure: total_MB {
     group_label: "Volumen de datos"
@@ -162,6 +188,22 @@ view: invoice_items {
     group_item_label: "Volumen promedio (KB)"
     type: average
     sql: ${kb_servicio} ;;
+  }
+
+  measure: average_MB {
+    group_label: "Volumen de datos"
+    group_item_label: "Volumen promedio (MB)"
+    type: average
+    value_format_name: "decimal_3"
+    sql: ${kb_servicio}/(1024) ;;
+  }
+
+  measure: average_GB {
+    group_label: "Volumen de datos"
+    group_item_label: "Volumen promedio (GB)"
+    type: average
+    value_format_name: "decimal_3"
+    sql: ${kb_servicio}/(1024*1024) ;;
   }
 
   measure: max_KB {
